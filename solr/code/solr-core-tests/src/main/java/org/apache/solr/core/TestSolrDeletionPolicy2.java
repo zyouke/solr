@@ -44,7 +44,7 @@ public class TestSolrDeletionPolicy2 extends SolrTestCaseJ4 {
             "name", "name" + String.valueOf(1)));
 
 
-    assertTrue(System.getProperty("onInit").equals("test.org.apache.solr.core.FakeDeletionPolicy.onInit"));
+    assertTrue(System.getProperty("onInit").equals("test.FakeDeletionPolicy.onInit"));
     assertU(commit());
     assertQ("return all docs",
             req("id:[0 TO 1]"),
@@ -52,7 +52,7 @@ public class TestSolrDeletionPolicy2 extends SolrTestCaseJ4 {
     );
 
 
-    assertTrue(System.getProperty("onCommit").equals("test.org.apache.solr.core.FakeDeletionPolicy.onCommit"));
+    assertTrue(System.getProperty("onCommit").equals("test.FakeDeletionPolicy.onCommit"));
 
     System.clearProperty("onInit");
     System.clearProperty("onCommit");

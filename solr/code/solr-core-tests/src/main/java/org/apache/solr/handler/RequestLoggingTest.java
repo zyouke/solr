@@ -56,7 +56,7 @@ public class RequestLoggingTest extends SolrTestCaseJ4 {
 
   @Test
   public void testLogBeforeExecuteWithRequestLogger() {
-    Logger logger = Logger.getLogger("org.apache.solr.core.SolrCore.Request");
+    Logger logger = Logger.getLogger("SolrCore.Request");
     testLogBeforeExecute(logger);
   }
 

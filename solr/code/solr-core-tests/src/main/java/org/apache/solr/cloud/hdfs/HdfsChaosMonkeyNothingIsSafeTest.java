@@ -53,7 +53,7 @@ public class HdfsChaosMonkeyNothingIsSafeTest extends ChaosMonkeyNothingIsSafeTe
     super.distribSetUp();
     
     // super class may hard code directory
-    useFactory("org.apache.solr.core.HdfsDirectoryFactory");
+    useFactory("HdfsDirectoryFactory");
   }
 
   

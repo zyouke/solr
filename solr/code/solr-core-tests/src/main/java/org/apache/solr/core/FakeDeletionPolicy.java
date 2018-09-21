@@ -49,12 +49,12 @@ public class FakeDeletionPolicy extends IndexDeletionPolicy implements NamedList
   //  @Override
   @Override
   public void onCommit(List arg0) throws IOException {
-    System.setProperty("onCommit", "test.org.apache.solr.core.FakeDeletionPolicy.onCommit");
+    System.setProperty("onCommit", "test.FakeDeletionPolicy.onCommit");
   }
 
   //  @Override
   @Override
   public void onInit(List arg0) throws IOException {
-    System.setProperty("onInit", "test.org.apache.solr.core.FakeDeletionPolicy.onInit");
+    System.setProperty("onInit", "test.FakeDeletionPolicy.onInit");
   }
 }

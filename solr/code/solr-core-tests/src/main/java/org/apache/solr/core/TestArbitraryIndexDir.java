@@ -57,7 +57,7 @@ public class TestArbitraryIndexDir extends AbstractSolrTestCase {
   public static void beforeClass() {
     // this test wants to start solr, and then open a separate indexwriter of its own on the same dir.
     System.setProperty("enable.update.log", "false"); // schema12 doesn't support _version_
-    System.setProperty("solr.directoryFactory", "org.apache.solr.core.MockFSDirectoryFactory");
+    System.setProperty("solr.directoryFactory", "MockFSDirectoryFactory");
   }
 
   @Override

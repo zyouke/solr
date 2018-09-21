@@ -35,6 +35,7 @@ public class SolrResponseBase extends SolrResponse
     return elapsedTime;
   }
 
+  @Override
   public void setElapsedTime(long elapsedTime) {
     this.elapsedTime = elapsedTime;
   }

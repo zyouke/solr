@@ -228,7 +228,9 @@ public class NamedList<T> implements Cloneable, Serializable, Iterable<Map.Entry
     for (int i=start; i<sz; i++) {
       String n = getName(i);
       if (name==null) {
-        if (n==null) return i; // matched null
+        if (n == null) {
+          return i;
+        } // matched null
       } else if (name.equals(n)) {
         return i;
       }
@@ -269,7 +271,9 @@ public class NamedList<T> implements Cloneable, Serializable, Iterable<Map.Entry
     for (int i=start; i<sz; i++) {
       String n = getName(i);
       if (name==null) {
-        if (n==null) return getVal(i);
+        if (n == null) {
+          return getVal(i);
+        }
       } else if (name.equals(n)) {
         return getVal(i);
       }
@@ -382,7 +386,9 @@ public class NamedList<T> implements Cloneable, Serializable, Iterable<Map.Entry
     sb.append('{');
     int sz = size();
     for (int i=0; i<sz; i++) {
-      if (i != 0) sb.append(',');
+      if (i != 0) {
+        sb.append(',');
+      }
       sb.append(getName(i));
       sb.append('=');
       sb.append(getVal(i));
@@ -409,6 +415,7 @@ public class NamedList<T> implements Cloneable, Serializable, Iterable<Map.Entry
         return size() == 0;
       }
 
+      @Override
       public boolean containsKey(Object  key) {
         return NamedList.this.get((String) key) != null ;
       }
@@ -617,7 +624,9 @@ public class NamedList<T> implements Cloneable, Serializable, Iterable<Map.Entry
    */
   public T remove(String name) {
     int idx = indexOf(name, 0);
-    if(idx != -1) return remove(idx);
+    if(idx != -1) {
+      return remove(idx);
+    }
     return null;
   }
 

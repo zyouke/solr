@@ -151,7 +151,7 @@ public abstract class CachingDirectoryFactory extends DirectoryFactory {
   /*
    * (non-Javadoc)
    * 
-   * @see org.apache.solr.core.DirectoryFactory#close()
+   * @see DirectoryFactory#close()
    */
   @Override
   public void close() throws IOException {
@@ -324,7 +324,7 @@ public abstract class CachingDirectoryFactory extends DirectoryFactory {
   /*
    * (non-Javadoc)
    * 
-   * @see org.apache.solr.core.DirectoryFactory#get(java.lang.String,
+   * @see DirectoryFactory#get(java.lang.String,
    * java.lang.String, boolean)
    */
   @Override
@@ -370,7 +370,7 @@ public abstract class CachingDirectoryFactory extends DirectoryFactory {
    * (non-Javadoc)
    * 
    * @see
-   * org.apache.solr.core.DirectoryFactory#incRef(org.apache.lucene.store.Directory
+   * DirectoryFactory#incRef(org.apache.lucene.store.Directory
    * )
    */
   @Override
@@ -401,7 +401,7 @@ public abstract class CachingDirectoryFactory extends DirectoryFactory {
    * (non-Javadoc)
    * 
    * @see
-   * org.apache.solr.core.DirectoryFactory#release(org.apache.lucene.store.Directory
+   * DirectoryFactory#release(org.apache.lucene.store.Directory
    * )
    */
   @Override

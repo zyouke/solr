@@ -217,7 +217,7 @@ based HashBitset. -->
     </lst>
   </requestHandler>
 
-  <requestHandler name="mock" class="org.apache.solr.core.MockQuerySenderListenerReqHandler"/>
+  <requestHandler name="mock" class="MockQuerySenderListenerReqHandler"/>
 
   <!-- test query parameter defaults -->
   <requestHandler name="defaults" class="solr.StandardRequestHandler">

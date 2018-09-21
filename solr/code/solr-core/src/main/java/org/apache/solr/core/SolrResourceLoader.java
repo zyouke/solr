@@ -702,7 +702,7 @@ public class SolrResourceLoader implements ResourceLoader,Closeable
   }
 
   /**
-   * Register any {@link org.apache.solr.core.SolrInfoMBean}s
+   * Register any {@link SolrInfoMBean}s
    * @param infoRegistry The Info Registry
    */
   public void inform(Map<String, SolrInfoMBean> infoRegistry) {

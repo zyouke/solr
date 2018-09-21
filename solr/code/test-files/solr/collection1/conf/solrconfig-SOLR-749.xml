@@ -27,8 +27,8 @@
   <queryParser name="lucene" class="org.apache.solr.search.FooQParserPlugin"/>
   <queryParser name="notfoo" class="solr.LuceneQParserPlugin"/>
 
-  <valueSourceParser name="boost" class="org.apache.solr.core.DummyValueSourceParser"/>
-  <valueSourceParser name="countUsage" class="org.apache.solr.core.CountUsageValueSourceParser"/>
+  <valueSourceParser name="boost" class="DummyValueSourceParser"/>
+  <valueSourceParser name="countUsage" class="CountUsageValueSourceParser"/>
 
   <requestHandler default="true" name="/select" class="solr.SearchHandler" />
 

@@ -28,9 +28,6 @@ import org.apache.solr.common.util.StrUtils;
 
 import static org.apache.solr.common.params.CommonParams.NAME;
 import static org.apache.solr.common.params.CommonParams.PATH;
-import static org.apache.solr.core.PluginInfo.APPENDS;
-import static org.apache.solr.core.PluginInfo.DEFAULTS;
-import static org.apache.solr.core.PluginInfo.INVARIANTS;
 
 /**
  * An Object which represents a {@code <initParams>} tag
@@ -41,7 +38,7 @@ public class InitParams {
   public final Set<String> paths;
   public final NamedList defaults, invariants, appends;
   private PluginInfo pluginInfo;
-  private final Set<String> KNOWN_KEYS = ImmutableSet.of(DEFAULTS, INVARIANTS, APPENDS);
+  private final Set<String> KNOWN_KEYS = ImmutableSet.of(PluginInfo.DEFAULTS, PluginInfo.INVARIANTS, PluginInfo.APPENDS);
 
   public InitParams(PluginInfo p) {
     this.pluginInfo = p;
@@ -52,11 +49,11 @@ public class InitParams {
       paths = Collections.unmodifiableSet(new HashSet<>(StrUtils.splitSmart(pathStr, ',')));
     }
     this.paths = paths;
-    NamedList nl = (NamedList) p.initArgs.get(DEFAULTS);
+    NamedList nl = (NamedList) p.initArgs.get(PluginInfo.DEFAULTS);
     defaults = nl == null ? null : nl.getImmutableCopy();
-    nl = (NamedList) p.initArgs.get(INVARIANTS);
+    nl = (NamedList) p.initArgs.get(PluginInfo.INVARIANTS);
     invariants = nl == null ? null : nl.getImmutableCopy();
-    nl = (NamedList) p.initArgs.get(APPENDS);
+    nl = (NamedList) p.initArgs.get(PluginInfo.APPENDS);
     appends = nl == null ? null : nl.getImmutableCopy();
   }
 
@@ -92,13 +89,13 @@ public class InitParams {
   public void apply(PluginInfo info) {
     if (!info.isFromSolrConfig()) {
       //if this is a component implicitly defined in code it should be overridden by initPrams
-      merge(defaults, (NamedList) info.initArgs.get(DEFAULTS), info.initArgs, DEFAULTS, false);
+      merge(defaults, (NamedList) info.initArgs.get(PluginInfo.DEFAULTS), info.initArgs, PluginInfo.DEFAULTS, false);
     } else {
       //if the args is initialized from solrconfig.xml inside the requestHandler it should be taking precedence over  initParams
-      merge((NamedList) info.initArgs.get(DEFAULTS), defaults, info.initArgs, DEFAULTS, false);
+      merge((NamedList) info.initArgs.get(PluginInfo.DEFAULTS), defaults, info.initArgs, PluginInfo.DEFAULTS, false);
     }
-    merge((NamedList) info.initArgs.get(INVARIANTS), invariants, info.initArgs, INVARIANTS, false);
-    merge((NamedList) info.initArgs.get(APPENDS), appends, info.initArgs, APPENDS, true);
+    merge((NamedList) info.initArgs.get(PluginInfo.INVARIANTS), invariants, info.initArgs, PluginInfo.INVARIANTS, false);
+    merge((NamedList) info.initArgs.get(PluginInfo.APPENDS), appends, info.initArgs, PluginInfo.APPENDS, true);
 
     if (pluginInfo.initArgs != null) {
       for (int i = 0; i < pluginInfo.initArgs.size(); i++) {

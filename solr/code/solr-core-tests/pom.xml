@@ -12,6 +12,8 @@
 
     <groupId>org.apache.solr</groupId>
     <artifactId>solr-core-tests</artifactId>
+    <name>Apache Solr Core tests</name>
+    <packaging>jar</packaging>
     <version>6.2.0</version>
     <build>
         <plugins>
@@ -24,9 +26,19 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>F:/zyouke_git/solr/solr/code/test-files</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
-    <name>Apache Solr Core tests</name>
-    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.apache.solr</groupId>

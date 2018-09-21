@@ -41,7 +41,6 @@ import org.apache.solr.common.cloud.ZkConfigManager;
 import org.apache.solr.common.cloud.ZkStateReader;
 import org.apache.solr.common.util.Utils;
 import org.apache.solr.core.backup.repository.BackupRepository;
-import org.apache.solr.core.backup.repository.BackupRepository.PathType;
 import org.apache.solr.util.PropertiesInputStream;
 import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
@@ -216,13 +215,13 @@ public class BackupManager {
 
   private void uploadToZk(SolrZkClient zkClient, URI sourceDir, String destZkPath) throws IOException {
     Preconditions.checkArgument(repository.exists(sourceDir), "Path {} does not exist", sourceDir);
-    Preconditions.checkArgument(repository.getPathType(sourceDir) == PathType.DIRECTORY,
+    Preconditions.checkArgument(repository.getPathType(sourceDir) == BackupRepository.PathType.DIRECTORY,
         "Path {} is not a directory", sourceDir);
 
     for (String file : repository.listAll(sourceDir)) {
       String zkNodePath = destZkPath + "/" + file;
       URI path = repository.createURI(sourceDir.getPath(), file);
-      PathType t = repository.getPathType(path);
+      BackupRepository.PathType t = repository.getPathType(path);
       switch (t) {
         case FILE: {
           try (IndexInput is = repository.openInput(sourceDir, file, IOContext.DEFAULT)) {

@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.index.ExitableDirectoryReader;
-import org.apache.lucene.index.ExitableDirectoryReader;
 import org.apache.lucene.util.Version;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.cloud.ZkController;

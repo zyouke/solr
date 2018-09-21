@@ -48,7 +48,7 @@ public interface SolrEventListener extends NamedListInitializedPlugin{
    *
    * </pre>
    *
-   * @see org.apache.solr.core.AbstractSolrEventListener#addEventParms(org.apache.solr.search.SolrIndexSearcher, org.apache.solr.common.util.NamedList) 
+   * @see AbstractSolrEventListener#addEventParms(org.apache.solr.search.SolrIndexSearcher, org.apache.solr.common.util.NamedList)
    *
    * @param newSearcher The new {@link org.apache.solr.search.SolrIndexSearcher} to use
    * @param currentSearcher The existing {@link org.apache.solr.search.SolrIndexSearcher}.  null if this is a firstSearcher event.

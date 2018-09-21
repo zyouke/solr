@@ -94,9 +94,9 @@ public final class ManagedIndexSchema extends IndexSchema {
   /**
    * Constructs a schema using the specified resource name and stream.
    *
-   * @see org.apache.solr.core.SolrResourceLoader#openSchema
+   * @see SolrResourceLoader#openSchema
    *      By default, this follows the normal config path directory searching rules.
-   * @see org.apache.solr.core.SolrResourceLoader#openResource
+   * @see SolrResourceLoader#openResource
    */
   ManagedIndexSchema(SolrConfig solrConfig, String name, InputSource is, boolean isMutable, 
                      String managedSchemaResourceName, int schemaZkVersion, Object schemaUpdateLock) 

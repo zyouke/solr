@@ -52,7 +52,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.lucene.store.AlreadyClosedException;
 import org.apache.solr.common.SolrException;
 import org.apache.solr.common.util.NamedList;
-import org.apache.solr.core.SolrConfig.JmxConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,7 +67,7 @@ import static org.apache.solr.common.params.CommonParams.NAME;
  * </p>
  *
  *
- * @see org.apache.solr.core.SolrConfig.JmxConfiguration
+ * @see SolrConfig.JmxConfiguration
  * @since solr 1.3
  */
 public class JmxMonitoredMap<K, V> extends
@@ -86,7 +85,7 @@ public class JmxMonitoredMap<K, V> extends
   private String coreHashCode;
 
   public JmxMonitoredMap(String coreName, String coreHashCode,
-                         final JmxConfiguration jmxConfig) {
+                         final SolrConfig.JmxConfiguration jmxConfig) {
     this.coreHashCode = coreHashCode;
     jmxRootName = (null != jmxConfig.rootName ?
                    jmxConfig.rootName

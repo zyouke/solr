@@ -52,7 +52,7 @@ public class HdfsChaosMonkeySafeLeaderTest extends ChaosMonkeySafeLeaderTest {
     super.distribSetUp();
     
     // super class may hard code directory
-    useFactory("org.apache.solr.core.HdfsDirectoryFactory");
+    useFactory("HdfsDirectoryFactory");
   }
 
   

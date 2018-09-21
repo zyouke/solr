@@ -18,7 +18,7 @@ package org.apache.solr.core;
 /**
  * Used to request notification when the core is closed.
  * <p>
- * Call {@link org.apache.solr.core.SolrCore#addCloseHook(org.apache.solr.core.CloseHook)} during the {@link org.apache.solr.util.plugin.SolrCoreAware#inform(SolrCore)} method to
+ * Call {@link SolrCore#addCloseHook(CloseHook)} during the {@link org.apache.solr.util.plugin.SolrCoreAware#inform(SolrCore)} method to
  * add a close hook to your object.
  * <p>
  * The close hook can be useful for releasing objects related to the request handler (for instance, if you have a JDBC DataSource or something like that)

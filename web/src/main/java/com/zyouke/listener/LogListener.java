@@ -24,7 +24,7 @@ public class LogListener implements ServletContextListener {
         configurator.setContext(lc);
         lc.reset();
         try {
-            configurator.doConfigure("F:/zyouke_git/solrSource/web/src/main/resources/logback.xml");
+            configurator.doConfigure("F:/zyouke_git/solr/web/src/main/resources/logback.xml");
         } catch (JoranException e) {
             e.printStackTrace();
         }

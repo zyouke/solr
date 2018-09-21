@@ -84,7 +84,7 @@ public class TestHdfsBackupRestoreCore extends SolrCloudTestCase {
       "  </solrcloud>\n" +
       "  \n" +
       "  <backup>\n" +
-      "    <repository  name=\"hdfs\" class=\"org.apache.solr.core.backup.repository.HdfsBackupRepository\"> \n" +
+      "    <repository  name=\"hdfs\" class=\"HdfsBackupRepository\"> \n" +
       "      <str name=\"location\">${solr.hdfs.default.backup.path}</str>\n" +
       "      <str name=\"solr.hdfs.home\">${solr.hdfs.home:}</str>\n" +
       "      <str name=\"solr.hdfs.confdir\">${solr.hdfs.confdir:}</str>\n" +

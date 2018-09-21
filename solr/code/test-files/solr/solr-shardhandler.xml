@@ -22,7 +22,7 @@
 <solr>
 
     <shardHandlerFactory name="shardHandlerFactory" 
-                         class="org.apache.solr.core.MockShardHandlerFactory">
+                         class="MockShardHandlerFactory">
       <str name="myMagicRequiredParameter">myMagicRequiredValue</str>
     </shardHandlerFactory>
 

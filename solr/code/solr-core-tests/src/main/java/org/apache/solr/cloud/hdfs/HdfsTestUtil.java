@@ -37,7 +37,7 @@ import org.apache.hadoop.hdfs.server.namenode.ha.HATestUtil;
 import org.apache.lucene.util.LuceneTestCase;
 import org.apache.solr.SolrTestCaseJ4;
 import org.apache.solr.common.util.IOUtils;
-import org.apache.solr.core.DirectoryFactory;
+import DirectoryFactory;
 import org.apache.solr.util.HdfsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -158,7 +158,7 @@ public class HdfsTestUtil {
       badTlogOutStream = badTlogOutStreamFs.create(hdfsDirPath);
     }
     
-    SolrTestCaseJ4.useFactory("org.apache.solr.core.HdfsDirectoryFactory");
+    SolrTestCaseJ4.useFactory("HdfsDirectoryFactory");
     
     return dfsCluster;
   }

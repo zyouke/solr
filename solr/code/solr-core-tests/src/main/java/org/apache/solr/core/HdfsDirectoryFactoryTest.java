@@ -33,7 +33,7 @@ import org.apache.lucene.store.NoLockFactory;
 import org.apache.solr.SolrTestCaseJ4;
 import org.apache.solr.cloud.hdfs.HdfsTestUtil;
 import org.apache.solr.common.util.NamedList;
-import org.apache.solr.core.DirectoryFactory.DirContext;
+import DirectoryFactory.DirContext;
 import org.apache.solr.handler.SnapShooter;
 import org.apache.solr.store.hdfs.HdfsLocalityReporter;
 import org.apache.solr.util.BadHdfsThreadsFilter;

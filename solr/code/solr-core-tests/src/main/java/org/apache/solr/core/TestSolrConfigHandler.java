@@ -327,9 +327,9 @@ public class TestSolrConfigHandler extends RestTestBase {
         Arrays.asList("config", "searchComponent", "tc"),
         null,
         10);
-    //<valueSourceParser name="countUsage" class="org.apache.solr.core.CountUsageValueSourceParser"/>
+    //<valueSourceParser name="countUsage" class="CountUsageValueSourceParser"/>
     payload = "{\n" +
-        "'create-valuesourceparser' : { 'name' : 'cu', 'class': 'org.apache.solr.core.CountUsageValueSourceParser'}\n" +
+        "'create-valuesourceparser' : { 'name' : 'cu', 'class': 'CountUsageValueSourceParser'}\n" +
         "}";
     runConfigCommand(writeHarness, "/config?wt=json", payload);
     testForResponseElement(writeHarness,
@@ -337,7 +337,7 @@ public class TestSolrConfigHandler extends RestTestBase {
         "/config?wt=json",
         cloudSolrClient,
         Arrays.asList("config", "valueSourceParser", "cu", "class"),
-        "org.apache.solr.core.CountUsageValueSourceParser",
+        "CountUsageValueSourceParser",
         10);
     //  <valueSourceParser name="nvl" class="org.apache.solr.search.function.NvlValueSourceParser">
 //    <float name="nvlFloatValue">0.0</float>

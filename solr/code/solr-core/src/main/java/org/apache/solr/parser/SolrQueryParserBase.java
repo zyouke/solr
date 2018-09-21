@@ -142,7 +142,7 @@ public abstract class SolrQueryParserBase extends QueryBuilder {
     setAnalyzer(schema.getQueryAnalyzer());
   }
 
-    /** Parses a query string, returning a {@link org.apache.solr.search.Query}.
+    /** Parses a query string, returning a {@link org.apache.lucene.search.Query}.
     *  @param query  the query string to be parsed.
     */
   public Query parse(String query) throws SyntaxError {

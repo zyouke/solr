@@ -80,7 +80,6 @@ import org.apache.solr.common.util.NamedList;
 import org.apache.solr.common.util.ObjectReleaseTracker;
 import org.apache.solr.common.util.SimpleOrderedMap;
 import org.apache.solr.common.util.Utils;
-import org.apache.solr.core.DirectoryFactory.DirContext;
 import org.apache.solr.core.snapshots.SolrSnapshotMetaDataManager;
 import org.apache.solr.handler.IndexFetcher;
 import org.apache.solr.handler.ReplicationHandler;
@@ -321,7 +320,7 @@ public final class SolrCore implements SolrInfoMBean, Closeable {
     Properties p = new Properties();
     Directory dir = null;
     try {
-      dir = getDirectoryFactory().get(getDataDir(), DirContext.META_DATA, getSolrConfig().indexConfig.lockType);
+      dir = getDirectoryFactory().get(getDataDir(), DirectoryFactory.DirContext.META_DATA, getSolrConfig().indexConfig.lockType);
       IndexInput input;
       try {
         input = dir.openInput(IndexFetcher.INDEX_PROPERTIES, IOContext.DEFAULT);
@@ -423,7 +422,7 @@ public final class SolrCore implements SolrInfoMBean, Closeable {
   private SolrSnapshotMetaDataManager initSnapshotMetaDataManager() {
     try {
       String dirName = getDataDir() + SolrSnapshotMetaDataManager.SNAPSHOT_METADATA_DIR + "/";
-      Directory snapshotDir = directoryFactory.get(dirName, DirContext.DEFAULT,
+      Directory snapshotDir = directoryFactory.get(dirName, DirectoryFactory.DirContext.DEFAULT,
            getSolrConfig().indexConfig.lockType);
       return new SolrSnapshotMetaDataManager(this, snapshotDir);
     } catch (IOException e) {
@@ -562,7 +561,7 @@ public final class SolrCore implements SolrInfoMBean, Closeable {
 
     if (indexExists && firstTime && !reload) {
       final String lockType = getSolrConfig().indexConfig.lockType;
-      Directory dir = directoryFactory.get(indexDir, DirContext.DEFAULT, lockType);
+      Directory dir = directoryFactory.get(indexDir, DirectoryFactory.DirContext.DEFAULT, lockType);
       try {
         if (IndexWriter.isLocked(dir)) {
           log.error(logid + "Solr index directory '{}' is locked (lockType={}).  Throwing exception.",

@@ -38,7 +38,7 @@
     
     <lockType>single</lockType>
 
-    <deletionPolicy class="org.apache.solr.core.FakeDeletionPolicy">
+    <deletionPolicy class="FakeDeletionPolicy">
       <str name="var1">value1</str>
       <str name="var2">value2</str>
     </deletionPolicy>

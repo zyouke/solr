@@ -59,7 +59,7 @@ public class TestRecovery extends SolrTestCaseJ4 {
   @BeforeClass
   public static void beforeClass() throws Exception {
     savedFactory = System.getProperty("solr.DirectoryFactory");
-    System.setProperty("solr.directoryFactory", "org.apache.solr.core.MockFSDirectoryFactory");
+    System.setProperty("solr.directoryFactory", "MockFSDirectoryFactory");
     initCore("solrconfig-tlog.xml","schema15.xml");
   }
   

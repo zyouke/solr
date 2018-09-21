@@ -1664,13 +1664,21 @@ public abstract class SolrTestCaseJ4 extends LuceneTestCase {
         if (v1 == v2) {
           c = 0;
         } else if (v1 == null) {
-          if (sortMissingLast) c = mul;
-          else if (sortMissingFirst) c = -mul;
-          else c = -1;
+          if (sortMissingLast) {
+            c = mul;
+          } else if (sortMissingFirst) {
+            c = -mul;
+          } else {
+            c = -1;
+          }
         } else if (v2 == null) {
-          if (sortMissingLast) c = -mul;
-          else if (sortMissingFirst) c = mul;
-          else c = 1;
+          if (sortMissingLast) {
+            c = -mul;
+          } else if (sortMissingFirst) {
+            c = mul;
+          } else {
+            c = 1;
+          }
         } else {
           c = v1.compareTo(v2);
         }
@@ -1687,7 +1695,7 @@ public abstract class SolrTestCaseJ4 extends LuceneTestCase {
       int c = 0;
       for (Comparator<Doc> comparator : comparators) {
         c = comparator.compare(o1, o2);
-        if (c!=0) return c;
+        if (c!=0) {return c;}
       }
       return o1.order - o2.order;
     };
@@ -1700,8 +1708,11 @@ public abstract class SolrTestCaseJ4 extends LuceneTestCase {
       out.append("{\"add\":{\"doc\":{");
       boolean firstField = true;
       for (Fld fld : doc.fields) {
-        if (firstField) firstField=false;
-        else out.append(',');
+        if (firstField) {
+          firstField = false;
+        } else {
+          out.append(',');
+        }
         JSONUtil.writeString(fld.ftype.fname, 0, fld.ftype.fname.length(), out);
         out.append(':');
         if (fld.vals.size() > 1) {
@@ -1709,8 +1720,11 @@ public abstract class SolrTestCaseJ4 extends LuceneTestCase {
         }
         boolean firstVal = true;
         for (Comparable val : fld.vals) {
-          if (firstVal) firstVal=false;
-          else out.append(',');
+          if (firstVal) {
+            firstVal = false;
+          } else {
+            out.append(',');
+          }
           out.append(JSONUtil.toJSON(val));
         }
         if (fld.vals.size() > 1) {
@@ -1732,7 +1746,9 @@ public abstract class SolrTestCaseJ4 extends LuceneTestCase {
     for (Comparable key : model.keySet()) {
       Doc doc = model.get(key);
       List<Comparable> vals = doc.getValues(field);
-      if (vals == null) continue;
+      if (vals == null) {
+        continue;
+      }
       for (Comparable val : vals) {
         List<Comparable> ids = value_to_id.get(val);
         if (ids == null) {

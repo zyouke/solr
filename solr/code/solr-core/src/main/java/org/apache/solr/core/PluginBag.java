@@ -215,7 +215,7 @@ public class PluginBag<T> implements AutoCloseable {
   }
 
   /**
-   * Initializes the plugins after reading the meta data from {@link org.apache.solr.core.SolrConfig}.
+   * Initializes the plugins after reading the meta data from {@link SolrConfig}.
    *
    * @param defaults These will be registered if not explicitly specified
    */

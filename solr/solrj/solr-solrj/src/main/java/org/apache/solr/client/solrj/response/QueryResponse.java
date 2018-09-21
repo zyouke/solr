@@ -172,7 +172,9 @@ public class QueryResponse extends SolrResponseBase
         _cursorMarkNext = (String) res.getVal( i );
       }
     }
-    if(_facetInfo != null) extractFacetInfo( _facetInfo );
+    if (_facetInfo != null) {
+      extractFacetInfo(_facetInfo);
+    }
   }
 
   private void extractSpellCheckInfo(NamedList<Object> spellInfo) {
@@ -577,19 +579,26 @@ public class QueryResponse extends SolrResponseBase
    * @return the FacetField by name or null if it does not exist
    */
   public FacetField getFacetField(String name) {
-    if (_facetFields==null) return null;
+    if (_facetFields == null) {
+      return null;
+    }
     for (FacetField f : _facetFields) {
-      if (f.getName().equals(name)) return f;
+      if (f.getName().equals(name)) {
+        return f;
+      }
     }
     return null;
   }
   
-  public FacetField getFacetDate(String name)   {
-    if (_facetDates == null)
+  public FacetField getFacetDate(String name) {
+    if (_facetDates == null) {
       return null;
-    for (FacetField f : _facetDates)
-      if (f.getName().equals(name))
+    }
+    for (FacetField f : _facetDates) {
+      if (f.getName().equals(name)) {
         return f;
+      }
+    }
     return null;
   }
   

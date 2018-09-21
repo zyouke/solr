@@ -88,7 +88,7 @@ public class TestDynamicLoading extends AbstractFullDistribZkTestBase {
 
 
     payload = "{\n" +
-        "'create-requesthandler' : { 'name' : '/test1', 'class': 'org.apache.solr.core.BlobStoreTestRequestHandler' , 'runtimeLib' : true }\n" +
+        "'create-requesthandler' : { 'name' : '/test1', 'class': 'BlobStoreTestRequestHandler' , 'runtimeLib' : true }\n" +
         "}";
 
     client = restTestHarnesses.get(random().nextInt(restTestHarnesses.size()));
@@ -98,7 +98,7 @@ public class TestDynamicLoading extends AbstractFullDistribZkTestBase {
         "/config/overlay?wt=json",
         null,
         Arrays.asList("overlay", "requestHandler", "/test1", "class"),
-        "org.apache.solr.core.BlobStoreTestRequestHandler",10);
+        "BlobStoreTestRequestHandler",10);
 
     Map map = TestSolrConfigHandler.getRespMap("/test1?wt=json", client);
 
